@@ -8,6 +8,7 @@ from text_utils import FontState
 import numpy as np 
 import matplotlib.pyplot as plt 
 import cPickle as cp
+import os.path as osp
 
 
 pygame.init()
@@ -34,7 +35,8 @@ for i in xrange(len(FS.fonts)):
 	xs.append(h)
 	print font.name
 
-with open('font_px2pt.cp','w') as f:
+font_model_path = osp.join('data', 'models/font_px2pt.cp')
+with open(font_model_path,'w') as f:
 	cp.dump(models,f)
 #plt.plot(xs,ys[i])
 #plt.show()

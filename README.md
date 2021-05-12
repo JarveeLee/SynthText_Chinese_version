@@ -23,11 +23,11 @@ I changed some func,just run gen.py will be OK,in gen.py I change the depth pred
 These are some samples I do.
 
 ** Synthetic Scene-Text Image Samples**
-![Synthetic Scene-Text Samples](Figure_1-1.png "Synthetic Samples")
 
-![Synthetic Scene-Text Samples](Figure_1-2.png "Synthetic Samples")
-
-![Synthetic Scene-Text Samples](Figure_1.png "Synthetic Samples")
+![Synthetic Scene-Text Samples](out_images/test0.png "Synthetic Samples")
+![Synthetic Scene-Text Samples](out_images/test1.png "Synthetic Samples")
+![Synthetic Scene-Text Samples](out_images/test2.png "Synthetic Samples")
+![Synthetic Scene-Text Samples](out_images/test3.png "Synthetic Samples")
 
 Code for generating synthetic text images as described in ["Synthetic Data for Text Localisation in Natural Images", Ankush Gupta, Andrea Vedaldi, Andrew Zisserman, CVPR 2016](http://www.robots.ox.ac.uk/~vgg/data/scenetext/).
 
@@ -35,7 +35,7 @@ Code for generating synthetic text images as described in ["Synthetic Data for T
 ** Synthetic Scene-Text Image Samples**
 ![Synthetic Scene-Text Samples](samples.png "Synthetic Samples")
 
-The library is written in Python. The main dependencies are:
+The library is written in Python. The main dependencies are (also see `requirement.txt`):
 
 ```
 pygame, opencv (cv2), PIL (Image), numpy, matplotlib, h5py, scipy

@@ -107,6 +107,7 @@ class RenderFont(object):
         self.baselinestate = BaselineState()
 
         # text-source : gets english text:
+        # now this folder modified to contain only chinese texts
         self.text_source = TextSource(min_nchar=self.min_nchar,
                                       fn=osp.join(data_dir,'newsgroup/'))
 
@@ -137,7 +138,7 @@ class RenderFont(object):
         surf = pygame.Surface(fsize, pygame.locals.SRCALPHA, 32)
 
         bbs = []
-        space = font.get_rect('O')
+        space = font.get_rect('o')
         x, y = 0, 0
         for l in lines:
             x = 0 # carriage-return
@@ -160,7 +161,8 @@ class RenderFont(object):
 
         # get the words:
         words = ' '.join(text.split())
-        #words=words.decode('utf-8')
+        # words=words.decode('utf-8')
+        # print words
         # crop the surface to fit the text:
         bbs = np.array(bbs)
         surf_arr, bbs = crop_safe(pygame.surfarray.pixels_alpha(surf), rect_union, bbs, pad=5)
@@ -529,7 +531,7 @@ class TextSource(object):
                       'PARA':self.sample_para}
         files= os.listdir(fn)
         files=files[0:-1]
-        #print files
+        # print files
         random.shuffle(files)
         filecnt=10
         self.txt=[]
@@ -537,14 +539,22 @@ class TextSource(object):
             filecnt-=1
             if filecnt==0:
                 break            
+            print filename
             fc=filename.decode('utf-8')
             fc=fn+fc
             print fc
             with open(fc,'r') as f:
                 for l in f.readlines():
                     line=l.strip()
-                    line=line.decode('utf-8')
-                    #print line
+                    # add the file contents
+                    #"""
+                    try:
+                        line=line.decode('utf-8')
+                    except:
+                        print colorize(Color.RED, 'cannot decode', line)
+                        pass
+                        # print 'failed to decode:', line
+                    #"""
                     self.txt.append(line)
         random.shuffle(self.txt)          
         print len(self.txt)

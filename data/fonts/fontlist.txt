@@ -1,4 +1,5 @@
-more_font/方正细黑一简体.ttf
-more_font/HYPPTiJ.ttf
+more_font/方正粗圆简体.ttf
+more_font/方正楷体GBK.ttf
 more_font/楷体_GB2312.ttf
 more_font/HYWaiWaiTiJ.ttf
+more_font/STKaiti.TTF
